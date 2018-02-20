@@ -18,7 +18,6 @@
 		"docker-remote-api": "*",
 		"dockerode": "*",
 		"express": "*",
-		"fs": "*",
 		"prom-client": "*"
 	},
 	"devDependencies": {
