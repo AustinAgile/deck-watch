@@ -1,0 +1,17 @@
+# Sevice
+apiVersion: v1
+kind: Service
+metadata:
+  name: deck-watch
+  labels:
+    app: deck-watch
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: metrics
+    port: 9143
+    protocol: TCP
+    targetPort: 9143
+  selector:
+    app: deck-watch
+  sessionAffinity: None

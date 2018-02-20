@@ -1,0 +1,26 @@
+{
+	"name": "deck-watch",
+	"version": "0.0.0",
+	"description": "Demo at this point",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Mattersight/deck-watch"
+	},
+	"main": "app.js",
+	"scripts": {
+	},
+	"author": "Mattersight",
+	"license": "SEE LICENSE IN LICENSE.txt",
+	"dependencies": {
+		"async": "*",
+		"child_process": "*",
+		"docker-remote-api": "*",
+		"dockerode": "*",
+		"express": "*",
+		"fs": "*",
+		"prom-client": "*"
+	},
+	"devDependencies": {
+	}
+}
