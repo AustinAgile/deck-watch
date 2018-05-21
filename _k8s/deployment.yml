@@ -10,6 +10,7 @@ metadata:
   generation: 1
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: deck-watch
@@ -30,7 +31,7 @@ spec:
     spec:
       containers:
       - name: deck-watch
-        image: matr/deck-watch:1.0.0
+        image: matr/deck-watch:1.1.0
         imagePullPolicy: Always
         command: ["/bin/bash", "-c"]
         args:
@@ -40,11 +41,11 @@ spec:
             sleep 30
           done
         ports:
-        - containerPort: 9143
+        - containerPort: 80
           name: prometheus
         volumeMounts:
           - name: code
-            mountPath: /usr/src/apps/dev
+            mountPath: /usr/src/apps/deck-watch
           - name: docker
             mountPath: /var/run/docker.sock
         resources: {}
@@ -56,10 +57,22 @@ spec:
            postStart:
              exec:
                command: ["/bin/sh", "-c", "rm -rf /usr/src/apps/mock-ti/node_modules/.bin", "cp -a /usr/src/apps/mock-ti/. /usr/src/apps/dev"]
+        readinessProbe:
+          httpGet:
+            path: /probes/readiness
+            port: 80
+          initialDelaySeconds: 2
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /probes/liveness
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 10
       volumes:
        - name: code
          hostPath:
-           path: /c/Users/matr00659/development/github/kubernetes/deck-watch
+           path: /development/github/kubernetes/deck-watch
        - name: docker
          hostPath:
            path: /var/run/docker.sock

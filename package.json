@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "https://github.com/Mattersight/deck-watch"
 	},
-	"main": "app.js",
+	"main": "code/main.js",
 	"scripts": {
 	},
 	"author": "Mattersight",
