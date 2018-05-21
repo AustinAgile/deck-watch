@@ -48,7 +48,9 @@ module.exports = function() {
 			var predelta = (stats.cpu_stats.system_cpu_usage - stats.precpu_stats.system_cpu_usage);
 			var cpu = 0;
 			if (cpudelta>0 && predelta>0) {cpu = stats.cpu_stats.online_cpus * cpudelta/predelta;}
-			monitor.utilization.cpu.set({containerName: name}, cpu);
+			if (!isNaN(cpu)) {
+				monitor.utilization.cpu.set({containerName: name}, cpu);
+			}
 
 			monitor.memory.set({containerName: name}, stats.memory_stats.usage);
 			monitor.utilization.memory.set({containerName: name}, stats.memory_stats.usage/stats.memory_stats.limit);
