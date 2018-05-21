@@ -31,15 +31,9 @@ spec:
     spec:
       containers:
       - name: deck-watch
-        image: matr/deck-watch:1.1.0
+        image: matr/deck-watch:1.2.0
         imagePullPolicy: Always
-        command: ["/bin/bash", "-c"]
-        args:
-        - |
-          while true
-          do
-            sleep 30
-          done
+        command: ["node", "code/shell"]
         ports:
         - containerPort: 80
           name: prometheus

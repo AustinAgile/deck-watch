@@ -19,7 +19,8 @@
 		"dockerode": "*",
 		"express": "*",
 		"lodash": "*",
-		"prom-client": "*"
+		"prom-client": "*",
+		"tree-kill": "*"
 	},
 	"devDependencies": {
 	}
