@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: deck-watch
-        image: matr/deck-watch:1.2.0
+        image: matr/deck-watch:1.3.0
         imagePullPolicy: Always
         command: ["node", "code/shell"]
         ports:
