@@ -12,7 +12,6 @@ metadata:
     Chart.Name: {{ .Chart.Name }}
     Chart.Version: {{ .Chart.Version }}
 spec:
-  externalTrafficPolicy: Cluster
   ports:
   - name: metrics
     port: 80
