@@ -1,2 +1,5 @@
 global:
   namespace: monitoring
+
+image:
+  repo: matr

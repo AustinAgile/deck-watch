@@ -1,13 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: deck-watch
+  name: {{ include "deck-watch.name" . }}
   namespace: {{ .Values.global.namespace }}
-  annotations:
-    Release.Name: {{ .Release.Name }}
-    Release.Revision: "{{ .Release.Revision }}"
-    Chart.Name: {{ .Chart.Name }}
-    Chart.Version: {{ .Chart.Version }}
+  annotations: {{ include "global.annotations.standard" . | indent 4 }}
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:

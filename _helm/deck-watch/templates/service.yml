@@ -2,15 +2,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: deck-watch
+  name: {{ include "deck-watch.name" . }}
   namespace: {{ .Values.global.namespace }}
+  annotations: {{ include "global.annotations.standard" . | indent 4 }}
   labels:
     app: deck-watch
-  annotations:
-    Release.Name: {{ .Release.Name }}
-    Release.Revision: "{{ .Release.Revision }}"
-    Chart.Name: {{ .Chart.Name }}
-    Chart.Version: {{ .Chart.Version }}
 spec:
   ports:
   - name: metrics
