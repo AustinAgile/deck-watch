@@ -2,4 +2,4 @@ global:
   namespace: monitoring
 
 image:
-  repo: matr
+  repo: artifactory.mattersight.local:6002

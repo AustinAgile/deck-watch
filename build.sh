@@ -1,0 +1,1 @@
+docker build --no-cache --tag artifactory.mattersight.local:6002/deck-watch:1.4.0 /development/github/kubernetes/deck-watch
